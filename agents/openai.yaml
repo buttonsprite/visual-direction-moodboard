@@ -1,0 +1,5 @@
+interface:
+  display_name: "视觉方向情绪板"
+  short_description: "围绕关键词找真实设计，一起浏览选图讨论，再整理成情绪板"
+  brand_color: "#243B53"
+  default_prompt: "使用 $visual-direction-moodboard 围绕我的关键词和已有想法搜集真实设计，先展示可回看的候选图库，和我看图讨论、继续搜索，再整理成情绪板。"
