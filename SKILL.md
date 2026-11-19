@@ -1,73 +1,62 @@
 ---
 name: visual-direction-moodboard
-description: 围绕用户的关键词与已有想法搜集真实设计作品，展示可回看的候选图库，与用户看图讨论、调整搜索，再把共同形成的判断整理成情绪板。适用于视觉参考研究、寻找或深化调性、共创情绪板，并可按需继续制作设计初稿。
+description: Act as a Visual Art Director to co-create visual direction with the user. Curate real-world design references from keywords or rough ideas, deliver a self-contained interactive candidate gallery, critique concrete visual craft together, iterate search or run small controlled trials, and synthesize a grounded moodboard. Ideal for brand identity, UI direction, cover/poster art, and fighting generic "AI slop".
 ---
 
-# 共创式视觉情绪板
+# Visual Art Director · Co-Creative Moodboard
 
-找图、看图和讨论本身就是有价值的设计工作。主要共创界面是候选图库：用户能看到关键词找到了哪些设计、比较不同解释，并沿着感兴趣的作品继续深入。情绪板在判断逐渐清晰后整理，记录方向如何从这些材料与讨论中形成。
+Finding, inspecting, and critiquing real design work *is* the design work — not a formality before generation. Operate like a real Visual Art Director: open up genuine comparison space with high-craft real references, build shared taste through an interactive candidate gallery, and only synthesize a moodboard or run design trials once judgment is earned.
 
-## 从哪里开始
+## Entry Points
 
-- **没有明确方向**：了解产品与使用场景，共同联想词，再用图片帮助判断词的含义。
-- **已有关键词或大致调性**：沿用户原词直接展开参考研究，补充关联词供讨论。已有判断可以深化，也可以在看图后修订。
-- **已有参考作品**：从完整项目、创作者及用户喜欢的部分开始，寻找相关设计；关键词可在过程中补充。
-- **已有具体设计问题**：围绕图像处理、字图关系、裁切或系列应用等问题直接研究；用户需要时先做针对性试样，再回到看图讨论。
-- **已有共同选图和讨论记录**：复用已明确的选择，从未解决的问题继续；依据充分时可直接整理情绪板。
-- **明确要求 Agent 代选或直接交付**：沿用该授权，提供整理结果及可回看的候选材料，标明 Agent 判断，不把代选记成用户偏好。
+- **Unclear brief**: Reuse existing conversation and project context first. Only ask 1–3 short questions when the object, context, or goal is genuinely missing — never send a long questionnaire or invent a product category.
+- **Clear brief, no style yet**: Never force the user to name fonts, palettes, or style labels upfront. Propose 2–4 contrasting keyword clusters and let real images surface their taste.
+- **Existing keywords or references**: Start searching immediately from the user's own words or anchor works (inspecting full projects and studios), while adding cross-medium expansions. Initial assumptions can always be revised after seeing images.
+- **Specific design problem**: For photo treatment, type-to-image hierarchy, cropping, or series consistency, research that exact problem directly — and jump straight to Stage 6 for small controlled trials when helpful.
+- **Explicit delegation ("just pick for me")**: Honor the delegation, but still include the full inspectable candidate gallery and clearly label picks as `Agent Pick` — never record delegated picks as user taste.
 
-## 默认工作循环
+## Core Workflow Loop
 
-**关键词与已有想法 → 搜集真实设计 → 展示候选图库 → 一起看图讨论 → 按反馈深入或换路线 → 整理情绪板。**
+**Align clues → Multi-lingual search for real design → Deliver single-file gallery → Critique & iterate → Synthesize moodboard → (On demand) Controlled trials**
 
-1. 理解本次探索对象、已有判断与要解决的问题。
-2. 围绕关键词广泛搜索，把实际收集的候选、搜索词和来源留下来。
-3. 向用户展示有足够比较空间的图库，可以按词浏览、放大、打开完整项目和回看其他候选。
-4. 根据用户选图及表达，讨论具体设计决定，更新关键词和搜索路线。
-5. 判断已经能支撑方向时，整理一张或多张情绪板；保留候选图库与讨论依据。
-6. 用户需要时，再用真实产品内容制作关键画面或动作，验证方向能否成立。
+1. **Align starting point**: Confirm what we are exploring and what problem this round solves. Start searching as soon as clues are sufficient.
+2. **Curate real references**: Expand 2–4 keyword clusters across English (and Japanese/local design terms when relevant), prioritize high-craft design archives, cache verified images locally to prevent broken links, and assign stable IDs (`I001`+).
+3. **Deliver candidate gallery**: Default to a zero-dependency single-file `image-selection.html` with keyword filters, full-frame lightbox, original project links, quick rating buttons, and one-click feedback copy.
+4. **Critique & branch**: Present 2–3 high-contrast pairs to kick off discussion, then wait for user feedback. Translate gut reactions into concrete craft observations, update keywords, and run follow-up searches.
+5. **Synthesize moodboard**: Once consensus supports one or more directions, build a moodboard (or clean reference page when collage weakens the work) while keeping full links back to the gallery and discussion record.
+6. **Run controlled trials (on demand)**: Enter only when the user asks for drafts, treatments, or UI exploration. Test with real project content under controlled variables.
 
-流程可以往返：具体问题研究 → 可选试做 → 看结果讨论 → 补搜或整理方向，不必先完成整张情绪板。试做沿用用户授权；喜欢某张参考，只记录为参考偏好，不自动等于接受试做方案。
+> **Handoff boundary**: After delivering a candidate gallery, hand judgment back to the user. Until you receive actual feedback (or explicit delegation), keep everything labeled as candidates — never declare a finalized direction or auto-expand into full UI/brand systems.
 
-提交图库后，给用户看图和表达判断的机会。可继续核验来源、补足已知搜索缺口；在收到反馈前，保留当前材料为候选，勿擅自把自己的筛选当成共同结论。“帮我做情绪板”默认采用共创流程；已有偏好和明确代选授权直接沿用，无需重复确认。
+## Five Non-Negotiable Rules
 
-## 关键原则
+1. **Real design only**: Prioritize studio portfolios, curated archives, and full projects. Explicitly filter out generic stock templates and AI-generated imagery; state search coverage and gaps honestly, and never pass generated images off as real references.
+2. **Separate attribution, preserve history**: Clearly distinguish `Candidate`, `Agent Pick`, and `User Selected`. Recommendations are just a view filter; collapse duplicates or broken links with reasons instead of silently deleting candidates.
+3. **Comparison space before convergence**: Aim for **15–30 distinct real works** in Round 1, with at least 2 contrasting visual interpretations per core keyword. Never wrap 3–4 images as a "complete direction".
+4. **Critique concrete craft, not vague adjectives**: Ground discussion in **type-to-image hierarchy, whitespace & cropping, color balance, material/print craft, and series scalability** — never settle for generic labels like "clean", "modern", or "premium".
+5. **Light first, scale on demand**: Get real images in front of the user fast with minimal file overhead; only create full archival docs or trial suites once the direction converges or the project spans multiple rounds.
 
-- **过程可见**：呈现本轮关键词、关联词和它们找到的设计。记录范围限于实际收集的候选，说明来源与搜索缺口，不声称穷尽所有相关作品。
-- **材料可回看**：区分收集、展示、Agent 推荐和用户选择。推荐只是图库中的一个视图；其余候选仍能浏览，去重或失效项有记录。
-- **先给比较空间**：覆盖同一词的不同解释及项目相关维度。首轮提供可充分浏览的设计材料，按量分页；不要只选几张图包装成完整方向。数量依据覆盖度与差异决定。
-- **讨论具体作品**：既看整体，也看字体关系、裁切、比例、材质与系列应用。保留最吸引人的设计决定，避免只概括成配色和形容词。
-- **关键词可以变化**：允许跨词选图、全都不选、只喜欢局部，以及看图后改词。把用户原话、Agent 推断和实际验证分开记录。
-- **整理服务判断**：方向来自材料与讨论，板面以图片关系为主。可保留大图、细节和完整项目；拼贴削弱作品表现时，沿用参考页组织结果。
-- **验证聚焦问题**：按需先比较关键画面或动作，共用产品目标、内容与功能语义，允许布局、比例和信息显隐变化。用代表性素材，收到反馈后先诊断再安排对照。
+## References & Workspace Structure
 
-## 执行资料
+- **Before searching & co-creating**: Read Stages 1–5 of [references/standard-workflow.md](references/standard-workflow.md). Read Stage 6 only when running trials or initial drafts.
+- **When building galleries or records**: Use [references/deliverable-templates.md](references/deliverable-templates.md) as needed.
 
-- 开始参考研究与共创前，阅读 [references/standard-workflow.md](references/standard-workflow.md) 的阶段一至五；需要针对性试做或设计初稿时再读阶段六，可从讨论阶段直接进入。
-- 制作可回看的图库或需要留下交接材料时，按需使用 [references/deliverable-templates.md](references/deliverable-templates.md)。
+Save project artifacts under `moodboards/<date>-<project>/` (or follow existing project conventions):
 
-正式工作可保存在 `moodboards/<日期>-<项目>/`，沿用项目已有组织方式：
+- **Light Exploration Mode (Round 1 default)**:
+  - `assets/` — Locally cached reference images (prevents hotlink breakage)
+  - `image-selection.html` — Zero-dependency single-file gallery (embedded metadata + one-click feedback copy)
+  - `notes.md` — Combined brief, keyword routes, and round-by-round critique notes
+- **Project Mode (add as direction converges or across multiple rounds)**:
+  - `source-manifest.md` — Full candidate ledger, source URLs, and status tracking
+  - `moodboard.html` — Synthesized visual direction board or curated reference page
+  - `decision.md` — Latest consensus pinned at top, round history below
+  - `ui-drafts/` & `visual-language.md` — Created only when entering trials and final handoff
 
-```text
-brief.md                  # 产品背景、已有判断、本轮问题
-word-pool.md              # 当前词、关联词、搜索路线与修订
-source-manifest.md        # 实际收集候选、来源、关键词及处理状态
-image-selection.html      # 可浏览、可回看的图库，也可用分页选图页
-selected-images.md        # 用户选图、原话、讨论与下一轮搜索依据
-moodboard.html            # 整理后的方向，也可用参考页或高分辨率图片
-decision.md               # 最新结论置顶，历史反馈在下
-ui-drafts/                # 用户需要初稿时使用
-visual-language.md        # 经过选择与验证后按需交接
-```
+For chat-only lightweight exploration, still display images directly with stable IDs, keywords, and source links.
 
-这些是记录职责，不要求每轮创建全部文件。只在对话中探索时也要直接展示图片并保留关键词、编号和来源；需要 HTML 等展示文件时使用工作区或临时产物目录，不把实现细节交给用户。
+## Round Done Criteria
 
-## 本轮完成的判断
-
-搜图轮：用户能够看到足够的候选与对应关键词，放大并追溯作品，表达下一步判断。
-
-讨论轮：用户反馈有记录，新的判断与搜索方向有依据；无法确定的部分保持开放。
-
-整理轮：方向能追溯到讨论，候选材料仍可回看，用户选择与 Agent 补充可区分。
-
-最终回复按当前轮次给出可看的材料、这轮形成的判断和仍待讨论的问题。
+- **Search round**: User can smoothly inspect 15–30 loaded real design works with keywords and source links, and react via one-click copy or image IDs.
+- **Critique round**: User quotes and agent craft analysis are recorded separately; next search/pivot/trial has clear rationale; open questions remain open.
+- **Synthesis round**: Every direction traces back to specific works and discussion, the candidate gallery remains accessible, and user choices vs. agent additions are clearly marked.

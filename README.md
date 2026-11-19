@@ -22,7 +22,7 @@ AI 生成的设计总是似曾相识？用真实设计参考和你的判断，�
 我们讨论后再整理情绪板。
 ```
 
-已有关键词、参考图或具体设计问题，都可以直接开始。Codex 中也可用 `$visual-direction-moodboard` 调用。
+已有关键词、参考图或具体设计问题，都可以直接开始。Codex 中也可用 `$visual-direction-moodboard` 调用。本仓库同时提供**英文版**（根目录 `SKILL.md`）与**中文版**（`zh/SKILL.md`）两套独立 Skill。
 
 ## 怎么用、得到什么
 
@@ -88,7 +88,8 @@ Agent 需要搜索、浏览和看图能力；制作 HTML 或试样还需要相�
 
 ## 文档与许可
 
-[Skill 指令](SKILL.md) · [标准流程](references/standard-workflow.md) · [记录模板](references/deliverable-templates.md)
+- **中文版 Skill**：[zh/SKILL.md](zh/SKILL.md) · [执行手册](zh/references/standard-workflow.md) · [交付模板](zh/references/deliverable-templates.md)
+- **English Skill**：[SKILL.md](SKILL.md) · [Playbook](references/standard-workflow.md) · [Templates](references/deliverable-templates.md)
 
 文档与配置采用 [MIT](LICENSE.txt)。示例照片及衍生图适用各自的 [图片许可](examples/ASSET-CREDITS.md)，不包含在 MIT 授权中。
 

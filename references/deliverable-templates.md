@@ -1,186 +1,165 @@
-# 参考研究与讨论记录
+# Deliverable & Record Templates
 
-按本轮需要使用，字段可合并到项目已有记录中。图库承担看图与反馈，详细记录承担追溯；不用把所有字段放到图片旁边。
+Use only what the current round needs — never force every file in Round 1. Rule of thumb: **the gallery handles visual inspection and low-friction feedback; Markdown handles lightweight traceability.**
 
-## 一、探索起点与搜索路线
+---
+
+## 1. Light Exploration Log: `notes.md` (Round 1 Default)
+
+Combine brief, keyword routes, and round-by-round critique into one clean file for fast iteration.
 
 ```markdown
-# <项目名>：探索起点
+# <Project Name> · Visual Direction Notes
 
-## 产品与本轮问题
-- 产品、受众、使用时刻、目标载体：
-- 已知事实与约束：
-- 用户已有判断与原话：
-- 本轮希望看清什么：
+## 1. Starting Point
+- **Subject & Context**:
+- **Known Constraints**:
+- **User Quotes & Initial Instincts**:
+- **What This Round Should Clarify**:
 
-## 当前词与路线
-| 词编号 | 用户原词或 Agent 扩展词 | 联想来处 | 实际搜索用语/来源 | 本轮覆盖与缺口 |
+## 2. Keyword Routes
+| ID | User Term | Agent Expansions (EN / Cross-Medium) | Sources Covered | Known Gaps |
 | --- | --- | --- | --- | --- |
-| W01 | | | | |
+| W01 | warm, rough, handmade | risograph editorial, tactile paper print | Behance, Are.na, Fonts In Use | Few mobile UI examples |
 
-## 看图后的修订
-- 原词 → 当前理解：
-- 对应图片与用户原话：
-- 下一轮搜索路线：
+## 3. Critique & Revisions (append per round)
+### Round 1
+- **User Picks & Verbatim Quotes**:
+  - `I004` (Like): "Great type-to-image breathing room"
+  - `I011` (No): "Too dark and heavy"
+- **Five-Dimension Craft Read (Agent)**:
+  - Type-to-image: generous margins + light serif headline
+  - Color: drop heavy browns; shift to warm paper white + fresh single accent
+- **Next Move**: Inspect full project behind `I004`; add 8 lighter-palette layout references (`I025`–`I032`)
 ```
 
-## 二、实际收集的候选
+---
 
-为每个候选保留以下信息，可使用 Markdown 或便于图库读取的结构化数据。派生视图沿用同一份编号与记录。
+## 2. Single-File Candidate Gallery: `image-selection.html` Spec
 
-```markdown
-### I001：<作品或项目名>
-- 预览与完整项目入口：
-- 原始来源、创作者、年份、权利信息（未知项标明）：
-- 关联词编号与实际搜索用语：
-- 发现来源与收集轮次：
-- 可能相关的设计特征（Agent 初步解释）：
-- 核验状态：
-- 展示状态：
-- Agent 是否推荐及理由：
-- 用户选择状态与原话（没有反馈时留空）：
-- 去重、失效或不展示原因，如有：
-- 同项目的系列图或细节：
-```
+Default to a zero-dependency single HTML file referencing local `assets/` images (instant double-click open, no broken hotlinks, portable):
 
-“Agent 推荐”与“用户选择”分别记录。同一作品的多关键词关系保留，重复图片可合并但仍能追溯发现路径。图库显示的候选数量由实际记录计算。
-
-## 三、候选图库
-
-### 首屏与浏览
-
-- 本轮关键词与关联词；可按词浏览，也能跨词看全部候选。
-- 大图、稳定编号、关联关键词、简短作品名与完整来源入口。
-- 放大保留完整构图，按需看细节及系列作品。
-- 可切换全部有效候选、本轮新增、Agent 推荐、用户已选。
-- 推荐之外的材料仍可找到；折叠重复或失效记录时显示原因。
-- 图片较多时提供分页或导航，其他批次可回看。
-- 显示浏览维度、当前筛选、当前/总数量及单位；项目数、图片数、方法数和试样数不混用，可清除筛选恢复全部。
-
-### 选择与反馈
-
-- 喜欢、不符合、待比较，也接受只报编号或自由表达。
-- 短评可选，未填写不阻止选择。
-- 选择可保存，能复制或导出编号、关键词与短评。
-- Agent 实际读取记录后再讨论；无法读取时请用户粘贴导出内容。
-
-### 交付时的话
+### Required UI & Interactions
+1. **Top bar**: Project title, view tabs (`All Candidates` / `New This Round` / `Agent Picks` / `Selected`), keyword filter pills, `Clear Filters`, and live counter with explicit units (e.g., `Showing 18 / 24 references · 14 projects`).
+2. **Card grid**: Large crisp previews, stable ID (`I001`), short title, keyword tags, original project link icon, 3 quick-tag buttons (`Like` / `Maybe` / `No`), and an optional one-line note input.
+3. **Full-frame lightbox**: Click any image to inspect full uncropped composition, metadata, original source link, 1-line agent craft note, and series/detail shots if available.
+4. **Collapsed section**: Expandable footer listing duplicates, broken links, or filtered items with reasons.
+5. **Sticky export bar (essential)**: Persist ratings in `localStorage` and provide a prominent **Copy Selection Feedback** button that copies this exact chat-ready format:
 
 ```text
-这轮围绕 <用户词>，扩展搜索了 <关联词/路线>。
-图库里可以看到 <主要差异>，也能打开完整项目、回看其他候选。
-<图库或分页材料入口>
-你可以标记有感觉的图，也可以说哪些词下面的结果不符合你的理解。
+[Visual Reference Feedback · Round 1]
+- Like:
+  - I004 [W01 warm-rough]: Love the type-to-image ratio and whitespace
+  - I012 [W02 paper-print]: Like the paper grain, not the dark palette
+- Maybe:
+  - I018 [W01 warm-rough]:
+- No:
+  - I007 [W01 warm-rough]: Feels like a generic template
 ```
 
-### 实际检查
+### Standard Handoff Message
+```text
+This round started from "<user terms>" and expanded into <routes>, curating <N> real design references (from <M> projects), cached locally.
 
-检查图片加载、放大、编号与关键词、原始链接、跨页回看和选择保存/导出；记录执行过的检查与未验证部分。静态联系表可用编号回复代替交互。
+👉 Open gallery: <path to image-selection.html>
 
-本地服务另记启动方式、页面与数据位置、启动命令返回后的访问检查，以及选择记录的恢复情况。按环境提供可直接打开的文件或可恢复服务的交付材料；分享入口不能仅是 localhost 地址。
+A few high-contrast pairs to start with:
+1. <I00X> vs. <I00Y>: <one-line craft difference>
+2. <I00A> vs. <I00B>: <one-line craft difference>
 
-## 四、选图讨论与后续搜索
-
-```markdown
-# <项目名>：看图讨论
-
-## 用户表达
-| 图片编号/关键词 | 用户选择 | 用户原话 | 喜欢的局部，如有 |
-| --- | --- | --- | --- |
-| | | | |
-
-## Agent 的理解
-- 具体作品中起作用的设计决定：
-- 与产品的关系：
-- 不确定或与用户表达存在分歧的地方：
-
-## 下一步
-- 深入参考 / 换路线 / 围绕具体问题试做 / 保留多个方向 / 整理情绪板：
-- 用户反馈与判断依据：
-- 要补充什么，为什么：
-- 对应新关键词与新增候选编号：
+Mark Like / Maybe / No directly in the gallery and hit "Copy Selection Feedback" to paste it back here — or just reply with IDs and gut reactions.
 ```
 
-## 五、方向整理
+---
+
+## 3. Candidate Ledger: `source-manifest.md` (Multi-Round / Project Mode)
+
+Keep in sync with the gallery's embedded JSON when formal traceability is needed:
 
 ```markdown
-# <方向名称>
-
-## 共同形成的判断
-- 用户原词、选图与讨论依据：
-- 若为 Agent 代选，明确归属：
-- 一句话气质：
-
-## 重点作品
-- 主导参考及其关键设计决定：
-- 辅助参考、细节与系列应用：
-- Agent 补充及用途：
-- 本次未采用的选图与取舍，如有：
-
-## 对本项目的启发
-- 拟保留或转化的具体特征：
-- 与其他方向的差异，如有：
-- 需要通过原创样片验证的部分：
-
-## 回看材料
-- 候选图库：
-- 关键词与来源记录：
-- 讨论记录：
+### I001 · <Project or Work Title>
+- **Local Preview / Source URL**: `assets/I001.jpg` | <URL>
+- **Creator / Year / Archive**: <mark unknown if unavailable>
+- **Keyword & Query**: `W01` · `risograph editorial poster`
+- **Craft Note (Agent Initial Read)**: Coarse single-ink halftone + edge-hugging display type
+- **Status**: `Candidate` / `Agent Pick` / `User Selected` / `Collapsed (reason)`
+- **User Quote**: <leave blank until feedback>
+- **Series / Details**: <if any>
 ```
 
-按方向数量复用本模板。结果可为图片、HTML 或整理后的参考页；以重点作品能被清楚理解为准。
+---
 
-## 六、当前状态
+## 4. Moodboard Synthesis: `moodboard.html` / Direction Structure
+
+Repeat per distinct direction (let large images and series relationships carry the story):
 
 ```markdown
-# <项目名>：设计探索状态
+# Direction A: <Direction Name>
 
-## 当前状态
-- 已选定：<范围、用户依据与产物>
-- 正在比较：<候选及产物>
-- 已放下：<方向与原因>
-- 下一轮问题：
+- **One-Line Tone**:
+- **Basis**: Built from user picks `I004`, `I012` and Round 1–2 critique (if agent-delegated, state explicitly)
 
-## 历史讨论
-- <按轮次记录；被新反馈取代的结论注明状态>
+## Key Works & Craft Decisions
+- **Anchor Reference** (`I004`): <1–2 decisive visual moves, e.g., type-to-image ratio & margins>
+- **Supporting & Detail References** (`I012`, `I019`): <texture, color, or series extensions>
+- **Agent Bridging References** (if any, state purpose):
+
+## Translation to This Project
+- **Keep & adapt**:
+- **Explicitly avoid**:
+- **Open for trial validation**:
+
+## Back-Links
+- Candidate gallery: `image-selection.html` · Notes: `notes.md`
 ```
 
-状态随明确反馈更新。只在对话中探索时用简短回复保留同样的信息。
+---
 
-## 七、可选初稿验证与交接
+## 5. Living Decision Log: `decision.md` (Multi-Round Projects)
+
+Pin current truth at the top; log round history below:
 
 ```markdown
-# <项目名>：方向验证
+# <Project Name> · Visual Decision Log
 
-## 本轮问题
-- 关键画面或动作：
-- 气质 → 可观察特征 → 观察方式：
+## Current Status (Latest)
+- **Confirmed**: <scope, user basis, artifact>
+- **Comparing**: <open directions & links>
+- **Dropped**: <direction & reason>
+- **Next Question**:
 
-## 比较基础
-- 共用目标、内容池、画幅与功能语义：
-- 允许变化的布局、比例、裁切和信息显隐：
-- 代表性素材及样本局限：
-- 同一输入比较哪些方法 / 同一方法覆盖哪些输入：
+## Round History
+- **Round 2 (date)**: ...
+- **Round 1 (date)**: ...
+```
 
-## 方法依据
-- 原作者公开说明的工艺及来源（未查到则标未知）：
-- Agent 提出的实现方法、与原作的差异或近似：
-- 适用的素材特征与限制：
+---
 
-## 候选表达（按实际方向复用）
-- 对应方向与参考编号：
-- 主要设计差异：
-- 独立样片或原型、对照入口：
-- 试样编号、原始参考、本项目原始素材、处理结果与最终构图（按需）：
+## 6. Controlled Trials & Visual Handoff: `ui-drafts/` & `visual-language.md`
 
-## 实际验证与下一步
-- 执行的内容、可读性及操作检查：
-- Agent 观察、用户反馈与未验证部分：
-- 参考偏好与试样选择分别记录；用户接受或不接受的裁切、遮挡、字图关系：
-- 下一轮问题、保持什么、改变什么：
+Use when entering Stage 6:
 
-## 需要交接时
-- 用户选定、经过验证的视觉规则与样片：
-- 对应原始参考与讨论依据：
-- 仍属于候选或待验证的规则：
+```markdown
+# <Project Name> · Trial Validation
+
+## Trial Question
+- **Key screen / interaction**:
+- **Controlled variables (fixed)**: real copy pool, aspect ratio, core actions
+- **Tested variables (changed)**: layout / crop / image treatment / color
+- **Comparison axis**: Same input, multiple methods (`T001`–`T003`) / Same method, multiple inputs (`T004`–`T008`)
+
+## Process & Boundaries
+- **Documented original craft**: <unknown if unpublished>
+- **Agent approximation**: <method & known differences>
+- **Material boundaries**: <which inputs work well vs. break>
+
+## Separate Feedback Record
+- **Reference preference**: <what the user liked in the original work>
+- **Trial reaction**: <accepted / rejected crop, occlusion, or type-to-image hierarchy>
+- **Next round**: keep X / change Y
+
+## Visual Language Handoff (verified rules only)
+- **Color roles / Type-to-image / Image treatment / Composition & motion**:
+- **Supporting trials & reference IDs**:
+- **Still unverified / open**:
 ```

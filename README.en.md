@@ -23,7 +23,7 @@ and let me browse and pick images. Discuss my choices before making a moodboard.
 Respond in English.
 ```
 
-Start with keywords, images you already like, or a specific design problem. In Codex, you can also invoke `$visual-direction-moodboard` directly. The Skill instructions are currently in Chinese; this README provides an English guide.
+Start with keywords, images you already like, or a specific design problem. In Codex, you can also invoke `$visual-direction-moodboard` directly. The Skill is now available in both **English** (repo root: `SKILL.md`) and **Chinese** (`zh/SKILL.md`).
 
 ## How it works
 
@@ -91,7 +91,8 @@ Discuss major workflow changes in an issue first. Keep candidates accessible, di
 
 ## Docs and license
 
-[Skill instructions](SKILL.md) · [Workflow](references/standard-workflow.md) · [Record templates](references/deliverable-templates.md) — currently in Chinese.
+- **English Skill (default)**: [SKILL.md](SKILL.md) · [Workflow](references/standard-workflow.md) · [Templates](references/deliverable-templates.md)
+- **中文 Skill**: [zh/SKILL.md](zh/SKILL.md) · [执行手册](zh/references/standard-workflow.md) · [交付模板](zh/references/deliverable-templates.md)
 
 Skill documentation and configuration use the [MIT License](LICENSE.txt). Example photos and their derivatives retain their own [image licenses](examples/ASSET-CREDITS.md); they are not covered by MIT.
 

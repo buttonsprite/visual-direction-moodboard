@@ -1,0 +1,5 @@
+interface:
+  display_name: "视觉艺术指导 · 共创情绪板"
+  short_description: "像视觉艺术指导一样搜集真实设计、交付单文件图库、看图拆解补搜并沉淀情绪板"
+  brand_color: "#243B53"
+  default_prompt: "使用 $visual-direction-moodboard 担任我的视觉艺术指导：围绕我的想法做双语设计检索，先交付单文件候选图库让我看图挑选，和我拆解具体视觉手法后再整理情绪板。"

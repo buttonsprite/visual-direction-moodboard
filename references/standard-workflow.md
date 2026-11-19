@@ -1,136 +1,107 @@
-# 从参考研究到共同定调
+# From Reference Research to Shared Visual Direction (Playbook)
 
-阶段一至五是默认共创流程，二至四可反复往返。用户需要针对性试做或设计初稿时，可从讨论直接进入阶段六，用试样帮助判断后再搜索或整理。沿用用户已提供的背景、偏好和授权，避免重复从零开始。
+Stages 1–5 form the default co-creative loop, with Stages 2–4 repeating as taste sharpens. When a concrete execution question arises and the user wants to test treatments, jump directly from Stage 4 to Stage 6 for small controlled trials, then return to search or synthesis. Always carry forward known context, preferences, and delegation without re-asking.
 
-## 阶段一：确定本次研究起点
+---
 
-读当前产品或品牌资料，简要明确探索对象、受众、使用时刻与目标载体。区分产品事实、用户已有判断和本轮未解决的问题。
+## Stage 1: Align Starting Point & Clues
 
-保留用户的词、比喻、参考作品及不满意的地方。气质词可以来自年代、音乐、场景、材料和生活片段，有具体联想即可，不必逐项对应功能。
+1. **Read context first**: Extract the design subject, audience, context of use, and hard constraints from existing conversation and project files. Separate verified facts from agent assumptions.
+2. **Ask minimally**: Only ask **1–3 short questions** if you genuinely do not know *what* is being designed, *where* it lives, or *what problem* this round solves. Wait for answers before searching. If the user explicitly wants open-ended inspiration, treat open exploration as the goal.
+3. **Never demand a style label upfront**: "I don't know what style I like yet" is the exact problem this workflow solves. Do not ask the user to pick fonts, colors, or style names before showing real work.
+4. **Preserve raw cues**:
+   - Starting from scratch: propose 2–4 contrasting keyword clusters (drawn from eras, music, materials, places, or sensory scenes).
+   - Keywords given: search the user's exact terms directly while adding related expansions for comparison.
+   - References given: inspect the full project, studio, and series applications first, then branch outward.
+   - Specific design problem given: organize search directly around the problem (e.g., photo cropping, dark-background typography, series consistency) without forcing a full brand brief first.
 
-- 从零开始时，共同展开有差异的一组词，便于用户回应。
-- 已有关键词时直接搜图，按需补充相关说法和跨媒介联想。
-- 已有作品时先看完整项目及其系列应用，再扩展创作者、媒介或设计方法。
-- 用户认为多个词都不错时，用图帮助分辨，允许跨词选择。
-- 已有具体问题时，以问题组织搜索，例如同一照片的封面处理、文字与主体的关系或系列变化；无需先补齐品牌定调。
+> Once clues are enough to search, start searching immediately — do not add a redundant "Shall I begin?" gate.
 
-本阶段的结果是一份简短背景与当前搜索线索，记录在已有文档或 `brief.md`、`word-pool.md` 中。线索足够启动搜索即可继续。
+---
 
-## 阶段二：展开搜索并保留材料
+## Stage 2: Curated Search & Asset Reliability
 
-### 搜索路径
+### 1. Multi-Lingual & Cross-Medium Query Expansion
+- **Translate mood into craft terms**: Expand intuitive mood words (e.g., "warm, rough, handmade") into professional design queries across English and relevant design cultures (e.g., `risograph editorial poster`, `tactile packaging typography`, `swiss grid zine`, `装丁 デザイン`). Always keep **user words** distinct from **agent expansions**.
+- **Search across mediums**: Look beyond direct product competitors into posters, book design, album sleeves, exhibition identity, packaging, architectural photography, and editorial web to avoid category clichés.
+- **Multiple interpretations per keyword**: Surface at least **2 visually distinct interpretations** per core keyword, plus 1–2 boundary cases that help the user draw a clear "yes / not this" line.
 
-围绕当前词或作品建立多条路线：原词及同义表达、词语组合、相关文化语境、不同媒介、同一作者或完整项目。把 Agent 扩展的词与用户原词区分开，并说明联想关系。
+### 2. High-Signal Sources & Anti-Slop Filtering
+- **Prioritize**: Studio portfolios, full Behance case studies, Are.na channels, Fonts In Use, It's Nice That, Brand New, Awwwards, Cosmos, ArchDaily, Read.cv, design annuals, and independent publishing archives.
+- **Filter out**: AI-generated image dumps, generic template marketplaces, and low-res re-pinned collages. Never pass AI-generated images off as real design references.
+- **Follow strong leads to full projects**: When a promising reference appears, inspect the complete project to see how the system handles layouts, typography, details, and series variations rather than stopping at an isolated thumbnail.
 
-根据问题找真实设计作品及相关摄影、空间、物件和动态参考。用户已有大致调性时，深入完整案例，观察同一套设计如何处理不同内容与载体。避免把研究停在孤立缩略图。
+### 3. First-Round Volume & Local Image Caching
+- **Volume target**: Collect **15–30 distinct, valid works** in Round 1 (10–15 for a tightly scoped single problem). Paginate or group by keyword when exceeding 24 items. Document actual coverage and known search gaps honestly.
+- **Stable IDs**: Assign sequential IDs (`I001`, `I002`…) that never change across rounds, tabs, or exports. One work may carry multiple keyword tags.
+- **Local caching to prevent broken images**: Many design sites block hotlinking. **Download verified previews into `assets/` and link them via relative paths in HTML.** Collapse unreachable or broken sources with reasons rather than leaving broken thumbnails in the gallery.
+- **Clean status separation**: Track four non-overlapping states: `Candidate`, `Agent Pick`, `User Selected`, and `Collapsed (with reason)`. Recommendations never overwrite candidate records; mark unverified items honestly.
 
-为每个重点词保留不同的视觉解释。可以补充接近但有明显差异的作品，让用户表达边界。搜索发现新理解时，留下新路线，暂时作为讨论材料。
+---
 
-### 候选记录
+## Stage 3: Deliver a Zero-Dependency Interactive Gallery
 
-为实际收集的候选分配稳定编号，例如 `I001`；跨轮次、分组、页面和导出保持一致。同一作品可以关联多个词。至少保留：
+### 1. Default Format: Self-Contained Single-File HTML
+Generate `image-selection.html` referencing local `assets/` images so the user can double-click and open it immediately — no local server required, portable, and easy to share:
+- **Image-first layout**: Large, sharp thumbnails with restrained spacing. Show only `ID + short title + keyword tags + original project link` on cards; put longer notes in the detail modal or `notes.md`.
+- **Full-frame lightbox**: Clicking an image opens its full uncropped composition (never force destructive square crops). Allow cycling through series or detail shots when available.
+- **Clear views & counts**: Provide view tabs (`All Candidates` / `New This Round` / `Agent Picks` / `Selected`) + keyword filter pills + `Clear Filters`. Display live counts with explicit units (e.g., `24 references · 14 projects`). Keep a collapsible section at the bottom for duplicates or broken links.
+- **Low-friction marking & one-click export**: Let users tag items as `Like`, `Maybe`, or `No` with an optional one-line note (saved in `localStorage`). Pin a prominent **Copy Selection Feedback** button that copies a clean `ID + keyword + rating + note` summary ready to paste straight back into chat.
 
-- 图片或作品编号、项目名与可回看的预览；
-- 来自哪个用户词或关联词、实际搜索用语与发现来源；
-- 完整项目或原始来源链接，创作者、年份、权利信息按可查程度记录，未知项标明；
-- 哪个特征可能与关键词有关，注明这是 Agent 的初步解释；
-- 是否核验图像内容、是否已展示、是否推荐、是否被用户选择；
-- 去重、失效或不展示的原因，如有。
+> Only spin up a local server if the environment strictly requires it; if used, verify the page stays reachable *after* startup returns, verify selections survive restart, and never hand out a temporary `localhost` URL as a shareable link.
 
-这些状态可以同时存在，不能用“推荐”覆盖“收集”记录。搜索结果页或缩略图未经核验时标为待核验；失效或受限来源如实说明，不用生成图冒充真实参考。
+### 2. Pre-Delivery Check & Guided Opening
+- **Verify before handing off**: Confirm images load cleanly, lightbox works, IDs and keywords match, original links open, and one-click copy outputs valid text. Note anything that could not be verified.
+- **Lead with 2–3 contrast pairs**: Never just drop a file path and ask "Which do you like?" Highlight 2–3 contrasting pairs to spark immediate judgment (e.g., *"For 'rough handmade', compare `I004` (coarse single-ink halftone) vs. `I011` (warm thick paper & generous whitespace) — which direction feels closer?"*).
+- **Wait for actual feedback**: Do not synthesize or declare a direction before reading the user's reply or pasted export.
 
-首轮研究要提供足够多的不同作品供比较，不能让少数偶然参考决定整个方向。数量随探索范围与有效差异调整；来源不足时明确缺口并更换路线。记录本轮实际覆盖了什么，不把保存的候选称为互联网全部搜索结果。
+---
 
-## 阶段三：交付可讨论的候选图库
+## Stage 4: Art-Director Critique & Next Round
 
-### 展示什么
+Start from the specific IDs or reactions the user calls out. **Record user quotes verbatim** and keep them separate from agent analysis.
 
-第一轮主要交付关键词关联的候选图库。每个词下面能看到相关作品及不同解释，允许切换“全部候选”“本轮新增”“Agent 推荐”“用户已选”。这些是视图，不是预先命名的品牌方向。
+### 1. Five-Dimension Craft Breakdown
+When a user gives an intuitive reaction (*"I love `I012`"* or *"`I007` feels cheesy"*), translate it into concrete craft decisions across five lenses:
+1. **Type-to-Image Hierarchy**: Overlay vs. framed photo window vs. full bleed; hairline serif vs. heavy display contrast.
+2. **Color & Contrast**: Low-saturation paper tones vs. bold chromatic tension vs. monochrome + single accent.
+3. **Material & Print Craft**: Coarse halftone, paper fiber, film grain, glass/metal speculars, crisp digital flat.
+4. **Composition & Cropping**: Breathing whitespace, extreme close-up crop, symmetrical formality, collage tension.
+5. **Series Scalability**: Does this system still hold up when swapped from a hero photo to ordinary real-world user content?
 
-优先制作可以放大并打开来源的 HTML 图库；也可用分页图片或对话中的编号图片，附完整候选索引。无论哪种形式，都要让用户实际看得到设计。
+### 2. Route the Next Round by Feedback
+- **Strong anchor**: Dig deeper into the full project, creator, studio, or craft technique; bring back validating references.
+- **Multiple appealing directions**: Keep the divergence alive as 2 parallel tracks instead of prematurely blending them.
+- **Partial appreciation**: Isolate the single loved element (e.g., *"keep the headline scale, drop the dark brown palette"*) and search across other styles so you don't copy the whole piece wholesale.
+- **Concrete execution question**: Narrow search to that problem, or — with user buy-in — jump to **Stage 6** for a small controlled trial.
+- **Nothing fits**: Diagnose with user quotes whether the mismatch is semantic, medium-based, or tonal (too vintage / too corporate), then revise keywords and pivot.
+- **Consensus is clear**: Move straight to **Stage 5** synthesis without unnecessary confirmation ceremony.
 
-- 图片占主要面积，字号与缩略图尺寸支持判断细节。
-- 卡片保留编号、关联关键词、简短项目名与来源入口；长分析放在详情或配套记录。
-- 可以按关键词、搜索路径或媒介分组；用户能跨组浏览与选图。
-- 放大保留作品完整构图，细节裁切和系列图作为补充；避免统一裁切破坏原作。
-- 全部实际收集的有效候选可回看。重复、失效或明显无关的记录可折叠，保留原因与链接；Agent 主观不喜欢的作品不因此消失。
-- 候选多时分页或按词导航。分批用于让材料可浏览，首批仍应呈现主要搜索路径及足够差异，后续页面可以直接访问。
-- 显示当前浏览维度、筛选条件和当前/总数量，并写明单位：项目、图片、方法或试样分别计算。提供“清除筛选/查看全部”；突出新增内容时仍保留此前候选入口。
+Continue sequential numbering for new candidates, tag them as `New This Round` with the rationale for adding them, and keep prior rounds intact.
 
-### 怎样参与
+---
 
-用户可以标记喜欢、不符合、待比较，也可以只给编号、短评或说“都不对”。理由是可选信息，不要求每张作答。少量话就能改变下一轮研究方向。
+## Stage 5: Synthesize the Moodboard
 
-HTML 的选择应能保留，并提供复制或导出“编号＋关键词＋短评”的方式。Agent 应实际读取可访问的选择记录；工具无法读取时，请用户粘贴导出结果。浏览器里的点击不会自动等于 Agent 已收到反馈。
+Once selections and critique clearly support one or more directions (or explicit delegation was granted):
 
-图库提交后，说明搜了哪些词、本轮最值得比较的差异以及材料入口，邀请用户看图反馈。此时保留为候选研究，不自动制作并宣布完整定调。若用户明确委托代选，则可以继续，但选择归属仍标为 Agent。
+1. **Frame the directions**: Build one board if choices align, or 2–3 clearly distinct boards if genuine aesthetic forks remain. Name each direction here.
+2. **Lead with fidelity**: Anchor each board around hero works, detail crops, and series applications. Do not cram every selected image onto one canvas — record curation trade-offs in notes. If a collage weakens the artwork, present it as a clean reference page instead.
+3. **Three-part rationale**: For each direction, connect **Key craft decisions in the references → How they translate to this project → What still needs validation**.
+4. **Preserve attribution & traceability**: Clearly label any bridging references added by the agent, and keep direct links back to the full candidate gallery and critique notes.
 
-### 检查
+> If the user only asked for a moodboard, deliver and stop here. Distinguish clearly between *visual direction aligned* and *original brand/UI finalized*.
 
-实际打开或检查展示结果：图片加载、放大、关键词映射、编号、来源以及选择保存/导出是否可用。所有分组可访问，推荐之外的候选可找到。无法验证的功能如实标明。
+---
 
-使用本地服务时，在启动命令返回后另行检查页面仍可访问，避免只验证启动瞬间。保留页面、数据和恢复服务所需信息；环境允许时提供可直接打开的本地版本，依赖服务的功能如实说明。重启后检查选择记录和候选入口，用户分享需要可携带的材料，不把临时 localhost 地址当作分享链接，也不默认公开部署。
+## Stage 6: Controlled Trials with Real Content (On Demand)
 
-## 阶段四：围绕作品讨论并继续搜索
+Enter only when the user asks for drafts, photo treatments, or interface explorations. Trials are discussion probes, never automatic finals.
 
-从用户点名的作品或词开始。保留原话与选择，区分用户喜欢的具体部分、Agent 推断及仍待判断之处。
-
-讨论聚焦少量当前最有价值的差异：
-
-- 这张作品最吸引人的设计决定是什么，例如字与图的关系、裁切、比例、材质、节奏？
-- 同一个词为什么找到了不同的视觉表达，哪些更符合用户理解？
-- 哪些图可以共同成立，哪些代表值得分别发展的方向？
-- 哪些原词需要修订，哪些新线索值得沿着完整项目继续看？
-
-Agent 可以给出独立判断或推荐，但让判断对应具体作品。选中一张图不代表接受它的所有特征。影响下一步的歧义可以用一个聚焦问题或对照图澄清；不要求用户先证明自己的直觉。
-
-每轮按反馈选择下一步：
-
-- **有强锚点**：深入该作品、作者、系列或表现方式，补充能验证理解的参考。
-- **多个方向都有感觉**：继续并列比较，保留分歧。
-- **只喜欢局部**：沿该特征找其他表现，避免把整件作品的风格搬进产品。
-- **聚焦到具体问题**：调整为围绕该问题的参考研究；已有试做请求时，用小规模对照帮助判断，再返回讨论，不强求用户先解释每一个偏好。
-- **都不符合**：结合原话判断词义、题材或表现方式哪里偏离，修订词和搜索路线。
-- **判断已足够清楚**：进入整理；已有整理授权直接沿用，无需额外增加确认节点。
-
-新增候选沿用编号体系，标明“为何补这一批”。保留上一轮材料与反馈，避免每轮换一批图却失去共同判断。用户尚未回复时可以核验或补足已知缺口，但不能虚构用户选择。
-
-在 `selected-images.md` 或同等记录中保留图片编号、用户原话、Agent 判断、关键词修订及下一轮依据。持续探索项目的 `decision.md` 顶部维护已选定、正在比较、已放下和下一轮问题，历史反馈在下。
-
-## 阶段五：把共同判断整理成情绪板
-
-用户已表达的偏好与讨论足以支撑方向时整理；如果明确授权 Agent 代选，依据来源改为代选并说明。用户只选出少量强参考也可以成立，关键是理解清楚且材料足以表达。
-
-1. 依据具体选择与讨论确定方向，一致时做一张板，有明显差异时分别发展。方向名称和气质说明在此形成。
-2. 围绕主导参考组织图像关系，保留关键作品的大图、重要细节及需要的系列应用。不是所有选图都必须塞进板面，取舍说明留在配套记录。
-3. Agent 可补充必要的执行或桥梁参考，标明用途和归属；保留用户已明确喜欢的特征。
-4. 用简短说明连接“参考中关键的设计决定 → 对本项目的启发 → 待验证部分”。避免仅剩配色、材质清单和泛化形容词。
-5. 图片承担主要表达。拼贴削弱作品时，沿用参考浏览页作为方向整理，不强制做单张海报。
-6. 保留候选图库、关键词和原始来源的入口。用户能回到讨论前的材料，看到哪些被采用、哪些暂时放下。
-
-检查方向是否能追溯到用户表达，重点作品是否清晰，多个方向是否有实质差异。真实参考研究有效，不等于已经形成原创品牌系统；未做初稿时，只说明参考与方向层面的结论。
-
-用户只要求情绪板时，在这里交付。简述形成的方向、依据、仍开放的问题与可回看的材料，不自动扩展到 UI 或品牌全案。
-
-## 阶段六：按需验证设计表达
-
-仅在用户请求包含试做、初稿、品牌表达或界面探索时执行，沿用已有授权。可以为一个具体问题进入本阶段，不要求先完成整体情绪板。试样是讨论材料，不能直接记作定稿。
-
-### 从参考到试样
-
-- 区分原作者公开说明的工艺、Agent 为获得相关效果提出的方法、以及方法对本项目素材的适用范围。未查到工艺时标为未知；数字近似不能写成已还原原作工艺。
-- 按问题安排两种对照：同一输入比较不同方法，或同一方法处理不同输入。需要判断可迁移性时覆盖两者；先做能看出差异的小批量，不默认穷举全部组合。
-- 对照按需呈现“原始参考 → 本项目原始素材 → 处理结果 → 最终构图”，标清来源与层次；只研究图像处理时无需硬做最终版式。这样能分辨问题来自处理、素材还是布局。
-- 给试样独立编号并关联参考编号。分别记录参考偏好和试样反馈；喜欢参考不意味着接受裁切、主体遮挡、文字关系或整套模板。允许用户只选图，用下一轮对照澄清影响执行的歧义。
-
-### 验证与继续
-
-- 将核心气质连接到可见或可操作的特征，选最能判断它的一张关键画面或一个动作。依赖节奏或手感时使用动态样片或可操作原型；静态图的验证范围如实限定。
-- 多方向共用产品目标、内容池、画幅与功能语义，允许布局、比例、裁切和信息显隐变化，保留必要内容与操作的可达性。
-- 选择能代表实际问题的素材：照片关注题材、明暗与构图差异；集合交互使用足以暴露浏览问题的数量。各方向使用同组样本，演示素材与样本局限标明。
-- 先比较关键画面或动作，有依据后再扩展状态。用户明确要求多个状态时按其范围执行。
-- 使用能控制文字与布局的制作方式。生成式图像可承担原创摄影、纹理或气氛素材，与真实参考明确区分。
-- 反馈偏离预期时，判断问题可能来自色彩、材质、比例、视角、信息层级、动效或素材；下一轮安排能区分原因的对照，保持无关因素稳定。
-- 实际检查内容、可读性、必要操作和视觉表现。区分技术检查、Agent 审美判断、用户选择与未验证部分，更新当前状态。
-
-需要交接时，把用户选定并经验证的方向整理为色彩角色、字图关系、图像处理、构图、材质及动态规则；关联支持它们的参考与样片。保存于 `visual-language.md` 或项目现有设计文档，候选推断保留原有身份。
+1. **Be honest about craft provenance**: Separate *documented original process*, *agent approximation*, and *material boundaries*. Mark unknown processes as unknown — never describe a digital filter as reproducing an analog print process.
+2. **Two comparison axes** (start small; do not exhaustively permute everything):
+   - **Same input, multiple methods**: Apply 2–3 treatments/layouts to one real asset to compare tone.
+   - **Same method, multiple inputs**: Apply a promising method across 3–5 diverse real assets (varying lighting, composition, subject) to test robustness.
+3. **Control variables & show layers**: Keep product goal, real copy pool, aspect ratio, and core functionality constant across directions while varying layout, crop, and treatment. When helpful, show `Original Reference → Project Raw Asset → Treatment → Final Layout` so issues are easy to diagnose.
+4. **Separate trial IDs & feedback**: Number trials independently (`T001`+, referencing `from I012`). **Liking a reference ≠ approving a trial's crop, occlusion, or typography** — log them separately.
+5. **Diagnose & hand off**: When a trial misses the mark, isolate which variable failed (color, texture, scale, hierarchy, or source asset) and adjust only that variable next round. After user confirmation, distill verified rules (color roles, typography, image treatment, layout, motion) into `visual-language.md`, linking each rule to its supporting references and approved trials.
